@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agendar Horário - Raissa Costa Microdesign</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    nav a i {
+  font-size: 20px;
+  vertical-align: middle;
+}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'monotype', sans-serif;
+      background-color: #fce4ec; /* Rosa bebê */
+      color: #333;
+      padding: 20px;
+      max-width: 600px;
+      margin: 40px auto;
+    }
+
+    nav {
+  background-color: #c2185b;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* centraliza os links */
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #c2185b;
+      color: white;
+      margin-top: 40px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      color: #c2185b;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 50px;
+    }
+
+    form {
+      background-color: #fce4ec;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(194, 24, 91, 0.2);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #880e4f;
+    }
+
+    input[type="date"],
+    input[type="time"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 80px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      background-color: #c2185b;
+      color: white;
+      font-weight: 700;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #a31546;
+    }
+
+    .info {
+      font-size: 14px;
+      color: #880e4f;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+      <nav>
+  <ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="agendamento.html">Agendar Horário</a></li>
+    <li>
+      <a href="https://www.instagram.com/raissacostamicro" target="_blank" title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <h1>Agende seu Horário</h1>
+
+    <form id="agendamentoForm">
+      <label for="data">Selecione a Data:</label>
+      <input type="date" id="data" name="data" required min="">
+
+      <label for="hora">Selecione o Horário:</label>
+      <input type="time" id="hora" name="hora" required>
+
+      <label for="observacao">Observações (opcional):</label>
+      <textarea id="observacao" name="observacao" placeholder="Escreva aqui alguma observação..."></textarea>
+
+      <button type="submit">Enviar via WhatsApp</button>
+    </form>
+
+    <p class="info">Ao clicar em enviar, seu WhatsApp será aberto para confirmar o agendamento.</p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Raissa Costa Microdesign. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Define hoje como data mínima para evitar datas passadas
+    const dataInput = document.getElementById('data');
+    const hoje = new Date().toISOString().split('T')[0];
+    dataInput.min = hoje;
+
+    const form = document.getElementById('agendamentoForm');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const data = form.data.value;
+      const hora = form.hora.value;
+      const observacao = form.observacao.value.trim();
+
+      if (!data || !hora) {
+        alert('Por favor, preencha data e horário.');
+        return;
+      }
+
+      const telefone = '5538999123289'; // <== Substitua pelo seu número com código do país e DDD (ex: 55 11 99999-9999)
+      let mensagem = `Olá! Gostaria de agendar um horário.\n\nData: ${data}\nHorário: ${hora}`;
+
+      if (observacao) {
+        mensagem += `\nObservações: ${observacao}`;
+      }
+
+      const urlMensagem = encodeURIComponent(mensagem);
+      const urlWhatsapp = `https://wa.me/${telefone}?text=${urlMensagem}`;
+
+      window.open(urlWhatsapp, '_blank');
+    });
+  </script>
+
+</body>
+</html>

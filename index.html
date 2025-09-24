@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raissa Costa Microdesign - Beleza e Estilo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    nav a i {
+  font-size: 20px;
+  vertical-align: middle;
+}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'monotype', sans-serif;
+      background-color: #fce4ec; /* Rosa bebê */
+      color: #333;
+    }
+
+    nav {
+      background-color: #c2185b;
+      padding: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .cta-button {
+      background-color: #f8bbd0;
+      color: #880e4f;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      font-weight: bold;
+    }
+
+    .cta-button:hover {
+      background-color: #f48fb1;
+    }
+
+    /* HERO SECTION */
+    .hero {
+  max-width: 960px; /* limite máximo de largura do conteúdo */
+  margin: 0 auto;   /* centraliza horizontalmente */
+  background-color: #fce4ec;
+  color: #880e4f;
+  padding: 60px 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  text-align: left; /* mantém texto alinhado à esquerda */
+}
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+      text-align: center; /* adicionado para centralizar texto */
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-align: justify; /* mantém o texto justificado */
+    }
+
+    @font-face {
+      font-family: 'Fleur De Leah';
+      src: url('fonts/FleurDeLeah.woff2') format('woff2'),
+           url('fonts/FleurDeLeah.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .hero h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    .slogan {
+      font-size: 22px;
+      margin: 20px 0;
+    }
+
+    .hero .cta-button {
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .carousel-container {
+      flex: 1;
+      max-width: 450px;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* FEATURES */
+   .features {
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.features h2 {
+  width: 100%; /* ocupa a largura total */
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
+  margin-bottom: 40px;
+  color: #c2185b;
+}
+
+.feature-item {
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  background-color: #fce4ec;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.feature-item h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  color: #d81b60;
+  margin-bottom: 25px; /* Aumenta a distância do texto */
+  text-align: center;
+}
+
+.feature-item p {
+  font-size: 16px;
+  text-align: justify;
+  color: #333;
+}
+
+
+
+    /* CARROSSEL DE IMAGENS */
+    .carousel-slide {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #c2185b;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .carousel-container {
+        max-width: 100%;
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+      <nav>
+  <ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="agendamento.html">Agendar Horário</a></li>
+    <li>
+      <a href="https://www.instagram.com/raissacostamicro" target="_blank" title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Bem-vinda ao Rah Costa Microdesign</h1>
+        <p class="slogan">Realce sua beleza com um design personalizado!</p>
+        <p>Nosso espaço foi criado com carinho para valorizar a sua beleza natural. Seja muito bem-vinda ao nosso estúdio, onde cada detalhe é pensado para você se sentir ainda mais confiante e radiante.</p>
+        <a href="agendamento.html" class="cta-button">Agende seu Design Agora!</a>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel-slide active">
+          <img src="sobrancelha1.jpg" alt="Design de sobrancelhas 1" />
+        </div>
+        <div class="carousel-slide">
+          <img src="sobrancelha2.jpg" alt="Design de sobrancelhas 2" />
+        </div>
+        <div class="carousel-slide">
+          <img src="sobrancelha3.jpg" alt="Design de sobrancelhas 3" />
+        </div>
+        <div class="carousel-slide">
+          <img src="sobrancelha4.jpg" alt="Design de sobrancelhas 4" />
+        </div>
+        <div class="carousel-slide">
+          <img src="sobrancelha5.jpg" alt="Design de sobrancelhas 5" />
+        </div>
+        <div class="carousel-slide">
+          <img src="sobrancelha6.jpg" alt="Design de sobrancelhas 6" />
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <h2>Nosso Diferencial</h2>
+      <div class="feature-item">
+        <h3>Design Personalizado</h3>
+        <p>Estudamos o formato do seu rosto e as suas preferências para criar o design ideal para você.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Técnicas Avançadas</h3>
+        <p>Utilizamos as melhores técnicas e produtos para garantir um resultado impecável e duradouro.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Ambiente Aconchegante</h3>
+        <p>Nosso espaço foi projetado para proporcionar conforto e bem-estar durante o atendimento.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Raissa Costa Microdesign. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- JS DO CARROSSEL -->
+  <script>
+    const slides = document.querySelectorAll(".carousel-slide");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 4000); // troca a cada 4 segundos
+  </script>
+
+</body>
+</html>
